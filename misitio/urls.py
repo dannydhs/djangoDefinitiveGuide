@@ -19,6 +19,8 @@ from django.contrib import admin
 
 from biblioteca import views
 
+from contactos.views import contactos
+
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', raiz),
@@ -31,5 +33,7 @@ urlpatterns = [
 
     # Url aplicacion biblioteca
     url(r'^formulario-buscar/$', views.formulario_buscar),
-    url(r'^buscar/$', views.buscar)
+    url(r'^buscar/$', views.buscar),
+    # Contactos
+    url(r'^contactos/$', contactos),
 ]

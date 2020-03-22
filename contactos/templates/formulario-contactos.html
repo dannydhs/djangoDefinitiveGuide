@@ -1,0 +1,25 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Contactanos</title>
+</head>
+<body>
+  <h1>Contactanos</h1>
+  {% if errors %}
+  <ul>
+    {% for error in errors %}
+      <li>{{ error }}</li>
+    {% endfor %}
+  </ul>
+  {% endif %}
+
+  <form action="/contactos/" method="post">{% csrf_token %}
+    <p>Asunto: <input type="text" name="asunto" value="{{ asunto }}"></p>
+    <p>E-mail (opcional): <input type="text" name="email" value="{{ email }}"></p>
+    <p>Mensaje: <textarea name="mensaje" cols="50" rows="10">{{ mensaje }}</textarea></p>
+    <input type="submit" value="Enviar">
+  </form>
+</body>
+</html>
